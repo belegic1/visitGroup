@@ -14,11 +14,13 @@ import { Link,  } from '@mui/material';
 import PostDetail from './components/PostDetail';
 import CreatePost from './components/CreatePost';
 import EditForm from './components/EditPost';
+import ErrorPage from './components/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Posts/>,
+    element: <Posts />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/create',
