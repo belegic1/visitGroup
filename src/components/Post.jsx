@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, CardMedia, Typography, CardContent, Chip } from '@mui/material';
+import { Card, CardMedia,  Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Content from './CardContent';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -13,13 +14,28 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard({text, owner, id, image, publishDate,tags}) {
-    const {firstName, lastName, title} = owner
+export default function MediaCard({
+  text,
+  owner,
+  id,
+  image,
+  publishDate,
+  tags,
+}) {
+  const { firstName, lastName, title } = owner;
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={image} title="image" />
-          <Content firstName={firstName} lastName={lastName} tex={text} publishDate={publishDate} tags={tags} title={title} />
+      <Content
+        firstName={firstName}
+        lastName={lastName}
+        text={text}
+        publishDate={publishDate}
+        tags={tags}
+        title={title}
+      />
+      <Button component={Link} to={`/${id}/edit`} variant='contained'>Edit this post</Button>
     </Card>
   );
 }

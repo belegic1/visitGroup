@@ -10,9 +10,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from "./theme"
 import Posts from './components/Posts';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Link } from '@mui/material';
+import { Link,  } from '@mui/material';
 import PostDetail from './components/PostDetail';
 import CreatePost from './components/CreatePost';
+import EditForm from './components/EditPost';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/:id',
     element: <PostDetail />,
+  },
+  {
+    path: '/:id/edit',
+    element: <EditForm />,
   },
 ]);
 
@@ -41,7 +46,6 @@ export default function Album() {
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -51,11 +55,13 @@ export default function Album() {
         >
           <Container maxWidth="sm">
             <Typography
-              component="h1"
+              component={Link}
               variant="h2"
               align="center"
               color="text.primary"
+              sx={{textDecoration:'none'}}
               gutterBottom
+              href="/"
             >
               Assigment
             </Typography>
@@ -70,7 +76,6 @@ export default function Album() {
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <RouterProvider router={router} />
         </Container>
       </main>

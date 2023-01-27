@@ -31,7 +31,7 @@ export default function PostCard({ id, image, owner, publishDate, tags, text }) 
         <Content
           firstName={firstName}
           lastName={lastName}
-          tex={text}
+          text={text}
           publishDate={publishDate}
           tags={tags}
           title={title}

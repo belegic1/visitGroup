@@ -2,7 +2,7 @@ import { CardContent, Chip, Typography } from "@mui/material";
 
 
 
-export default function Content({title, firstName, lastName, publishDate, tags, text}) {
+export default function Content({ title, firstName, lastName, publishDate, tags, text }) {
     return (
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
